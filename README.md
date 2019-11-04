@@ -19,9 +19,9 @@ Please do the following
 
 If the above useage causes problems let us know.
 
-* do you understand how to fork and pull request? If not we're happy to show you
-* You have a highly complex code base that doesn't suit this application? Great, let us know what you need and we can work with you
-* You have a highly unorthodox talk that involves [interpretative dance/ puppet show/ dramatic readings]? Very exicting, see above.
+* Do you understand how to fork and pull request? Have a look [at this guide](https://guides.github.com/activities/forking/) If you're still stuck we're happy to show you
+* Do you have a highly complex code base that doesn't suit this application? Great, let us know what you need and we can work with you
+* Do you have a highly unorthodox talk that involves [interpretative dance/ puppet show/ dramatic readings]? Very exicting, see above.
 
 You can get in touch with us through:
 satrday.cardiff@gmail.com
