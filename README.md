@@ -19,7 +19,7 @@ Please do the following
 
 If the above useage causes problems let us know.
 
-* do you understand how to fork and PR? If not we're happy to show you
+* do you understand how to fork and pull request? If not we're happy to show you
 * You have a highly complex code base that doesn't suit this application? Great, let us know what you need and we can work with you
 * You have a highly unorthodox talk that involves [interpretative dance/ puppet show/ dramatic readings]? Very exicting, see above.
 
