@@ -13,7 +13,7 @@ Please do the following
 1. fork the repo to your user
 2. make a folder with your name and session like this: `dave_parr-my_talk_title`
 3. put your content into the folder
-4. open a PR back in
+4. open a pull request back in
 
 ## What if that doesn't work for me?
 
