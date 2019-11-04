@@ -3,7 +3,7 @@
 There are a few reasons why we are getting this done before rather than afterwards
 
 * access - if we know where the content is, we have a global backup on the day in case the worst happens
-* accessibility - we have aspirations (still WIP) to make this more accessible than last year, potentially with remote streaming/live captioning/pre-prepped audio descriptions
+* accessibility - we have aspirations (still work in progress) to make this more accessible than last year, potentially with remote streaming/live captioning/pre-prepped audio descriptions
 * legacy - we would also love a record of what went on, so we can show people all your great work
 
 ## Structure
