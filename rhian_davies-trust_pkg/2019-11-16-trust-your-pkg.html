@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Can you trust your R package? 📦</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Rhian Davies (@trianglegirl)" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Can you trust your R package? 📦
+## SatRday Cardiff 2019
+### Rhian Davies (<a href="https://twitter.com/trianglegirl">@trianglegirl</a>)
+
+---
+
+
+
+
+
+layout:true
+layout: true
+
+      &lt;div class="jr-header"&gt;
+        &lt;img class="logo" src="assets/white_logo_full.png"/&gt;
+        &lt;span class="social"&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;img src="assets/twitter.gif"/&gt;&lt;/td&gt;&lt;td&gt; @jumping_uk&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      
+&lt;div class="jr-footer"&gt;&lt;span&gt;&amp;copy; 2019 Jumping Rivers (jumpingrivers.com)&lt;/span&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+
+---
+
+# Jumping Rivers
+
+.pull-left[
+&lt;img src="assets/robot.jpg"&gt;&lt;/img&gt;
+]
+
+
+.pull-right[
+
+
+* On-site training (RSS accredited)
+
+* R and python consultancy
+
+* Dashboard creation
+
+* Code review
+
+* Continuous integration
+
+* RStudio full service certified partners
+
+* System architecture
+
+* R Package development
+
+* Predictive analytics
+  ]
+  
+---
+
+# Our clients
+
+&lt;div id="clients"&gt;
+&lt;img src="assets/shell.png"&gt;&lt;/img&gt;&lt;img src="assets/sustrans.png"&gt;&lt;/img&gt;
+&lt;img src="assets/yorkshire.png"&gt;&lt;/img&gt;&lt;img src="assets/hastings.png"&gt;&lt;/img&gt;
+&lt;img src="assets/Pragmatic.png" style=position:relative;top:*2.5rem&gt;&lt;/img&gt;&lt;img src="assets/nhs.png"&gt;&lt;/img&gt;
+&lt;img src="assets/royal_statistical_society.jpg"&gt;&lt;/img&gt;&lt;img src="assets/Francis_Crick_Institute.png"&gt;&lt;/img&gt;
+&lt;img src="assets/Ministry_of_Defence.png"&gt;&lt;/img&gt;&lt;img src="assets/University_of_Manchester.png"&gt;&lt;/img&gt;
+&lt;img src="assets/scot-gov.png"&gt;&lt;/img&gt;
+&lt;img src="assets/ea.png" style=position:relative;top:-3rem&gt;&lt;/img&gt;
+&lt;/div&gt;
+
+---
+
+# Hands up... 🙋
+
+* If you've written an R package before?
+
+--
+
+* If you've written a test before?
+
+--
+
+* If you've used version control before?
+
+--
+
+* If you've used continuous integration before?
+
+---
+
+# Git Refresher
+
+![](assets/git.png)
+
+---
+
+class: center 
+
+#  Make a small changes and integrate often
+
+
+![](assets/ci.png)
+
+
+---
+
+
+# Why use CI?
+
+
+* Get daily constant feedback 🔁
+
+* Catch bugs early 🐛
+
+* Avoid the monster commit 👹
+
+* You don't have to remember to run `devtools::check()` 🤦
+---
+
+# Travis?
+
+.pull-left[
+
+* A hosted continuous integration service
+
+* Used to build and test software projects hosted at GitHub
+
+* Essentially a push to GitHub, triggers another job
+
+* This job could be anything 
+]
+
+.pull-right[
+&lt;img src="assets/travis.png"&gt;&lt;/img&gt;
+]
+
+
+---
+
+# How to set it up?
+
+* Host your R package on GitHub
+
+* Create a `.travis.yml` file `usethis::use_travis()`
+
+* Go to travis-ci.org to link your GitHub account with travis
+
+* Turn on ci for your project by switching the button
+
+--
+
+
+```r
+&gt; usethis::use_travis()
+✔ Setting active project to '/home/rhian/Documents/presentations/2019-11-16-trust-your-pkg'
+✔ Writing '.travis.yml'
+✔ Adding '^\\.travis\\.yml$' to '.Rbuildignore'
+● Turn on travis for your repo at https://travis-ci.org/profile/trianglegirl
+```
+
+---
+
+# An example `travis.yml` file
+
+
+```{}
+language: r
+cache: packages
+```
+
+--
+
+```{}
+r:
+  - oldrel
+  - release
+  - devel
+```
+
+--
+
+```{}
+notifications:
+  email:
+    recipients:
+     - alerts@jumpingrivers.support
+    on_success: change
+    on_failure: change
+```
+
+---
+
+class: center
+
+# What jobs can you run on Travis?
+
+![](assets/lintr.png)
+![](assets/pushbullet.png)
+
+![](assets/covr.png)
+![](assets/testthat.png)
+
+---
+
+
+# Badge-tastic
+
+[![Travis build status](https://travis-ci.org/jr-packages/jrIntroduction.svg?branch=master)](https://travis-ci.org/jr-packages/jrIntroduction)
+
+
+```{}
+
+[![Travis build status](https://travis-ci.org/jr-packages/jrIntroduction.svg?branch=master)](https://travis-ci.org/jr-packages/jrIntroduction)
+
+```
+  
+---
+
+class: center, middle, inverse
+
+![](assets/no-pass.gif)
+
+---
+
+class: center, middle, inverse
+
+![](assets/dammit-travis-1.png)
+
+---
+
+class: center, middle, inverse
+
+![](assets/dammit-travis-2.png)
+
+---
+
+class: center, middle, inverse
+
+![](assets/dammit-travis-3.png)
+
+---
+
+class: center, middle, inverse
+
+![](assets/dammit-travis-4.png)
+
+---
+
+class: center, middle, inverse
+
+![](assets/dammit-travis-5.png)
+
+---
+
+# Jumping Rivers and CI 
+
+* R training notes 📖
+  * Spell check
+  * Full stops
+  * Up-to-date packages
+  * Dead links
+
+* Our R packages 📦
+  * Standard package check 
+  * Lintr styling
+  * Sensible file names
+
+---
+
+# Note check demo
+
+```
+◉ Comparing to master
+◉ Checking template files
+◉ Checking package versions
+◉ Spell check (experimental)
+◉ Checking chapters for title case
+◉ Checking section for sentence case
+◉ Checking for full stops
+◉ Checking for undefined citations
+◉ Checking for duplicate labels
+◉ Checking for undefined refs
+◉ Checking URLS
+◉ Checking lint
+◉ Checking version in config.yml
+◉ Checking for uncommitted 
+✔ Everything committed!
+★ ★ You are fabulous! ★ ★
+```
+---
+
+# inteRgrate 📦
+
+* We wanted to **simplify** and **standardise** the way we use CI
+
+* Create functions which will work on GitHub, GitLab and in R
+
+* Specify the exact number of NOTES and WARNINGS we allow
+
+* Include additional checks
+
+
+---
+
+# Main functions of inteRgrate ✔️
+
+  * `check_pkg()`
+  * `check_r_filenames()`
+  * `check_tidy_description()`
+  * `check_lintr()`
+  * `check_namespace()`
+
+```{}
+inteRgrate::check_lintr()
+◉ Checking lint...check_lintr()
+◉ Checking vignettes
+..........
+✔ Lint looks good
+```
+  
+
+---
+
+# Summary 
+
+.pull-left[
+
+* Use continuous integration ✔️
+
+* Don't get upset when it fails 😩
+
+* Feel happy you've taken a step toward more robust code 🔒
+
+* Chat to us if you need help ✉️
+
+
+#### Resources
+* [inteRgrate](https://github.com/jumpingrivers/inteRgrate)
+* [usethis](https://usethis.r-lib.org/)
+* [tic](https://github.com/ropenscilabs/tic)
+* [Julia's blogpost](https://juliasilge.com/blog/beginners-guide-to-travis/)
+* [GitHub PAT](https://itsalocke.com/blog/using-travis-make-sure-you-use-a-github-pat/)
+
+]
+
+.pull-right[
+![](assets/failing.jpg)
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
